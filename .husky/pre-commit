@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-npm run lint-staged || (
-	echo 'Prettier Format Failed. Run npm run format, add changes and try commit again.';
-	false;
-)
