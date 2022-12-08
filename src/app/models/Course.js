@@ -22,4 +22,4 @@ Course.plugin(mongooseDelete, { overrideMethods: 'all' })
 Course.plugin(AutoIncrement);
 // Course.plugin(AutoIncrement, { inc_field: 'name' });
 
-module.exports = mongoose.model('Course', Course)
+module.exports = mongoose.model('courses', Course)
