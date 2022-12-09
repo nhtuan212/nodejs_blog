@@ -55,13 +55,13 @@ app.use(SortMiddleware);
 // Test middlewares
 // Authentication
 // Permission/ Authorization
-const protected = (req, res, next) => {
-	if (['vethuong', 'vevip'].includes(req.query.ve)) {
-		req.face = "Test face"
-		return next()
-	}
-	res.status(403).json({ message: 'access denied from home page' })
-}
+// const protected = (req, res, next) => {
+// 	if (['vethuong', 'vevip'].includes(req.query.ve)) {
+// 		req.face = "Test face"
+// 		return next()
+// 	}
+// 	res.status(403).json({ message: 'access denied from home page' })
+// }
 // app.use('/courses', protected)
 
 app.get('/middleware',
