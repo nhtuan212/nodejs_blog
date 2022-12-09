@@ -1,56 +1,57 @@
 {
-	"name": "blog",
-	"version": "1.0.0",
-	"description": "",
-	"main": "src/index.js",
-	"scripts": {
-		"start": "nodemon --inspect src/index.js",
-		"start:dev": "npm run babel && npm run import-es6 && nodemon --inspect src/index.js",
-		"import-es6": "node --experimental-specifier-resolution=node src/index.js",
-		"build": "node-sass -w src/resources/scss/ -o src/public/css/",
-		"prepare": "husky install",
-		"lint-staged": "lint-staged",
-		"babel": "babel src/index.js -d dist",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/nhtuan212/nodejs_blog.git"
-	},
-	"keywords": [
-		"Blog",
-		"NodeJs"
-	],
-	"author": "Binayu",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/nhtuan212/nodejs_blog/issues"
-	},
-	"homepage": "https://github.com/nhtuan212/nodejs_blog#readme",
-	"lint-staged": {
-		"src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
-	},
-	"dependencies": {
-		"@babel/cli": "^7.19.3",
-		"@babel/core": "^7.20.5",
-		"@babel/node": "^7.20.5",
-		"@babel/preset-env": "^7.20.2",
-		"dotenv": "^16.0.3",
-		"express": "^4.18.2",
-		"express-handlebars": "^6.0.6",
-		"method-override": "^3.0.0",
-		"mongoose": "^6.7.5",
-		"mongoose-delete": "^0.5.4",
-		"mongoose-sequence": "^5.3.1",
-		"mongoose-slug-generator": "^1.0.4",
-		"nodemon": "^2.0.20",
-		"pg-promise": "^10.15.4"
-	},
-	"devDependencies": {
-		"husky": "^8.0.2",
-		"lint-staged": "^13.0.4",
-		"morgan": "^1.10.0",
-		"node-sass": "^8.0.0",
-		"prettier": "^2.8.0"
-	}
+    "name": "blog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "nodemon --inspect src/index.js",
+        "build": "babel src/index.js",
+        "start:dev": "npm run babel && npm run import-es6 && nodemon --inspect src/index.js",
+        "import-es6": "node --experimental-specifier-resolution=node src/index.js",
+        "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
+        "prepare": "husky install",
+        "lint-staged": "lint-staged",
+        "babel": "babel src/index.js -d dist",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nhtuan212/nodejs_blog.git"
+    },
+    "keywords": [
+        "Blog",
+        "NodeJs"
+    ],
+    "author": "Binayu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nhtuan212/nodejs_blog/issues"
+    },
+    "homepage": "https://github.com/nhtuan212/nodejs_blog#readme",
+    "lint-staged": {
+        "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    },
+    "dependencies": {
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.20.5",
+        "@babel/node": "^7.20.5",
+        "@babel/preset-env": "^7.20.2",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "express-handlebars": "^6.0.6",
+        "method-override": "^3.0.0",
+        "mongoose": "^6.7.5",
+        "mongoose-delete": "^0.5.4",
+        "mongoose-sequence": "^5.3.1",
+        "mongoose-slug-generator": "^1.0.4",
+        "nodemon": "^2.0.20",
+        "pg-promise": "^10.15.4"
+    },
+    "devDependencies": {
+        "husky": "^8.0.2",
+        "lint-staged": "^13.0.4",
+        "morgan": "^1.10.0",
+        "node-sass": "^8.0.0",
+        "prettier": "^2.8.0"
+    }
 }
