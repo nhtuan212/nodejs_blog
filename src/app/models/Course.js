@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 const slug = require('mongoose-slug-generator')
-const Schema = mongoose.Schema
 const mongooseDelete = require('mongoose-delete')
 const AutoIncrement = require('mongoose-sequence')(mongoose);
+
+const Schema = mongoose.Schema
 
 const Course = new Schema({
 	_id: { type: Number, },
@@ -22,4 +23,4 @@ Course.plugin(mongooseDelete, { overrideMethods: 'all' })
 Course.plugin(AutoIncrement);
 // Course.plugin(AutoIncrement, { inc_field: 'name' });
 
-module.exports = mongoose.model('courses', Course)
+module.exports = mongoose.model('products', Course)

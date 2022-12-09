@@ -9,7 +9,7 @@ const { port, ext, mongoURL } = require('./config/constants');
 const { connectDB } = require('./config/db');
 const SortMiddleware = require('./app/middlewares/SortMiddleware')
 
-// Connect DB
+// Connect MongoDB
 connectDB(mongoURL)
 
 const app = express();

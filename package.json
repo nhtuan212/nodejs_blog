@@ -1,6 +1,6 @@
 {
 	"name": "blog",
-"version": "1.0.0",
+	"version": "1.0.0",
 	"description": "",
 	"main": "src/index.js",
 	"scripts": {
@@ -43,7 +43,8 @@
 		"mongoose-delete": "^0.5.4",
 		"mongoose-sequence": "^5.3.1",
 		"mongoose-slug-generator": "^1.0.4",
-		"nodemon": "^2.0.20"
+		"nodemon": "^2.0.20",
+		"pg-promise": "^10.15.4"
 	},
 	"devDependencies": {
 		"husky": "^8.0.2",
