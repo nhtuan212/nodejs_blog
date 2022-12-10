@@ -65,21 +65,21 @@ app.use(SortMiddleware);
 // }
 // app.use('/courses', protected)
 
-app.get('/middleware',
-	(req, res, next) => {
-		if (['vethuong', 'vevip'].includes(req.query.ve)) {
-			req.face = "Test face"
-			return next()
-		}
-		res.status(403).json({ message: 'access denied' })
-	},
-	(req, res, next) => {
-		res.json({
-			message: 'success',
-			face: req.face
-		})
-	}
-)
+// app.get('/middleware',
+// 	(req, res, next) => {
+// 		if (['vethuong', 'vevip'].includes(req.query.ve)) {
+// 			req.face = "Test face"
+// 			return next()
+// 		}
+// 		res.status(403).json({ message: 'access denied' })
+// 	},
+// 	(req, res, next) => {
+// 		res.json({
+// 			message: 'success',
+// 			face: req.face
+// 		})
+// 	}
+// )
 
 // HTTP logger
 app.use(morgan('combined'));
@@ -90,11 +90,19 @@ app.set('view engine', ext);
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // Routes Init
-route(app);
+// route(app);
 
-app.listen(port, () => {
-	console.log(`App listening on port ${port}`);
+const router = express.Router();
+router.get("/", (req, res) => {
+	res.json({
+		hello: "hi!"
+	});
 });
+app.use(`/.netlify/functions/index`, router);
+
+// app.listen(port, () => {
+// 	console.log(`App listening on port ${port}`);
+// });
 
 module.exports = app;
 module.exports.handler = serverless(app);
