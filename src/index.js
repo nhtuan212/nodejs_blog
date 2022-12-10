@@ -82,7 +82,7 @@ const app = express();
 // )
 
 // HTTP logger
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 
 // Template Engine
 // app.engine(ext, hbs.engine);
