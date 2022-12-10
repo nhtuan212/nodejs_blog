@@ -6,7 +6,7 @@
     "scripts": {
         "start": "nodemon --inspect src/index.js",
         "build2": "nodemon --inspect src/index.js",
-        "build": "babel src/index.js -d dist",
+        "build": "nodemon --exec ./node_modules/.bin/babel-node ./src/server.js",
         "start:dev": "npm run babel && npm run import-es6 && nodemon --inspect src/index.js",
         "import-es6": "node --experimental-specifier-resolution=node src/index.js",
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
