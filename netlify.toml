@@ -2,4 +2,6 @@
   functions = "functions"
 
 [dev]
+	command = "npm start"
+	port = 3000
   publish = "dist"
