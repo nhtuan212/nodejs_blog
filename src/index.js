@@ -82,7 +82,7 @@ app.get('/middleware',
 )
 
 // HTTP logger
-// app.use(morgan('combined'));
+app.use(morgan('combined'));
 
 // Template Engine
 app.engine(ext, hbs.engine);
@@ -90,22 +90,11 @@ app.set('view engine', ext);
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // Routes Init
-// route(app);
+route(app);
 
-const router = express.Router();
-
-router.get("/", (req, res) => {
-	res.json({
-		hello: "hi!"
-	});
+app.listen(port, () => {
+	console.log(`App listening on port ${port}`);
 });
-
-// app.use(`/`, router);
-app.use(`/.netlify/functions/index`, router);
-
-// app.listen(port, () => {
-// 	console.log(`App listening on port ${port}`);
-// });
 
 module.exports = app;
 module.exports.handler = serverless(app);
