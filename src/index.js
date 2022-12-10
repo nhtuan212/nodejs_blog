@@ -92,15 +92,6 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 // Routes Init
 route(app);
 
-
-const router2 = express.Router();
-router2.get("/", (req, res) => {
-	res.json({
-		hello: "hi!"
-	});
-});
-app.use(`/.netlify/functions/api`, router2);
-
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 });
