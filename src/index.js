@@ -103,9 +103,9 @@ router.get("/", (req, res) => {
 // app.use(`/`, router);
 app.use(`/.netlify/functions/index`, router);
 
-app.listen(port, () => {
-	console.log(`App listening on port ${port}`);
-});
+// app.listen(port, () => {
+// 	console.log(`App listening on port ${port}`);
+// });
 
 module.exports = app;
 module.exports.handler = serverless(app);
