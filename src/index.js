@@ -9,6 +9,8 @@ const { port, ext, mongoURL } = require('./config/constants');
 const { connectDB } = require('./config/db');
 const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
 const serverless = require("serverless-http");
+const nodeExternals = require('webpack-node-externals');
+
 
 // Connect MongoDB
 connectDB(mongoURL)
@@ -106,3 +108,7 @@ app.listen(port, () => {
 
 module.exports = app;
 module.exports.handler = serverless(app);
+
+module.exports = {
+	externals: [nodeExternals()],
+};
