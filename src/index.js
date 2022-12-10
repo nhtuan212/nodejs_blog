@@ -8,6 +8,7 @@ const { route } = require('./routes');
 const { port, ext, mongoURL } = require('./config/constants');
 const { connectDB } = require('./config/db');
 const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
+const serverless = require("serverless-http");
 
 // Connect MongoDB
 connectDB(mongoURL)
@@ -94,3 +95,6 @@ route(app);
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 });
+
+module.exports = app;
+module.exports.handler = serverless(app);
