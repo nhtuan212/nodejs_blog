@@ -11,7 +11,7 @@ const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
 const serverless = require("serverless-http");
 
 // Connect MongoDB
-connectDB(mongoURL)
+// connectDB(mongoURL)
 
 const app = express();
 const hbs = create({
