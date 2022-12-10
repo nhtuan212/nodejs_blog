@@ -90,7 +90,7 @@ app.set('view engine', ext);
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // Routes Init
-route(app);
+// route(app);
 
 const router = express.Router();
 
