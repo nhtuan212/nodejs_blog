@@ -14,30 +14,30 @@ const serverless = require("serverless-http");
 // connectDB(mongoURL)
 
 const app = express();
-const hbs = create({
-	extname: ext,
-	helpers: {
-		sum: (a, b) => a + b,
-		sortable: (field, sort) => {
-			const sortType = field === sort.column ? sort.type : 'default'
+// const hbs = create({
+// 	extname: ext,
+// 	helpers: {
+// 		sum: (a, b) => a + b,
+// 		sortable: (field, sort) => {
+// 			const sortType = field === sort.column ? sort.type : 'default'
 
-			const icons = {
-				default: '<i class="fa-sharp fa-solid fa-sort"></i>',
-				asc: '<i class="fa-sharp fa-solid fa-arrow-down-a-z"></i>',
-				desc: '<i class="fa-sharp fa-solid fa-arrow-down-z-a"></i>'
-			}
-			const types = {
-				default: 'desc',
-				asc: 'desc',
-				desc: 'asc'
-			}
-			const icon = icons[sortType]
-			const type = types[sortType]
+// 			const icons = {
+// 				default: '<i class="fa-sharp fa-solid fa-sort"></i>',
+// 				asc: '<i class="fa-sharp fa-solid fa-arrow-down-a-z"></i>',
+// 				desc: '<i class="fa-sharp fa-solid fa-arrow-down-z-a"></i>'
+// 			}
+// 			const types = {
+// 				default: 'desc',
+// 				asc: 'desc',
+// 				desc: 'asc'
+// 			}
+// 			const icon = icons[sortType]
+// 			const type = types[sortType]
 
-			return `<a href="?_sort&column=${field}&type=${type}">${icon}</a>`
-		},
-	}
-});
+// 			return `<a href="?_sort&column=${field}&type=${type}">${icon}</a>`
+// 		},
+// 	}
+// });
 
 // Apply Midlewares
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -51,7 +51,7 @@ const hbs = create({
 // app.use(methodOverride('_method'));
 
 // Custom Middleware
-app.use(SortMiddleware);
+// app.use(SortMiddleware);
 
 // Test middlewares
 // Authentication
