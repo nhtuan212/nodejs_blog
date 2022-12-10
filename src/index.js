@@ -40,15 +40,15 @@ const hbs = create({
 });
 
 // Apply Midlewares
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(
-	express.urlencoded({
-		extended: true,
-	}),
-);
-app.use(express.json());
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(
+// 	express.urlencoded({
+// 		extended: true,
+// 	}),
+// );
+// app.use(express.json());
 
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 
 // Custom Middleware
 app.use(SortMiddleware);
