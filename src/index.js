@@ -92,6 +92,15 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 // Routes Init
 route(app);
 
+const router = express.Router();
+router.get("/", (req, res) => {
+	res.json({
+		hello: "hi!"
+	});
+});
+
+app.use('/.netlify/functions/binayu', SiteRouter);
+
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 });
