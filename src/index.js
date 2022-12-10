@@ -85,9 +85,9 @@ app.use(SortMiddleware);
 app.use(morgan('combined'));
 
 // Template Engine
-app.engine(ext, hbs.engine);
-app.set('view engine', ext);
-app.set('views', path.join(__dirname, 'resources', 'views'));
+// app.engine(ext, hbs.engine);
+// app.set('view engine', ext);
+// app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // Routes Init
 // route(app);
