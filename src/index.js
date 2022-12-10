@@ -1,7 +1,7 @@
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 // const methodOverride = require('method-override')
 const { create } = require('express-handlebars');
 const { route } = require('./routes');
