@@ -5,9 +5,9 @@ const express = require('express');
 // const methodOverride = require('method-override')
 // const { create } = require('express-handlebars');
 // const { route } = require('./routes');
-const { port, ext, mongoURL } = require('./config/constants');
-const { connectDB } = require('./config/db');
-const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
+// const { port, ext, mongoURL } = require('./config/constants');
+// const { connectDB } = require('./config/db');
+// const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
 const serverless = require("serverless-http");
 
 // Connect MongoDB
