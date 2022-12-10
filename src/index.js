@@ -3,12 +3,12 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override')
-// const { create } = require('express-handlebars');
+const { create } = require('express-handlebars');
 const { route } = require('./routes');
-const { port, ext, mongoURL } = require('./config/constants');
-const { connectDB } = require('./config/db');
-const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
-const serverless = require("serverless-http");
+// const { port, ext, mongoURL } = require('./config/constants');
+// const { connectDB } = require('./config/db');
+// const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
+// const serverless = require("serverless-http");
 
 // Connect MongoDB
 // connectDB(mongoURL)
