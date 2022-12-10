@@ -50,7 +50,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 // Custom Middleware
-app.use(SortMiddleware);
+// app.use(SortMiddleware);
 
 // Test middlewares
 // Authentication
