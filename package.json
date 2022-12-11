@@ -6,6 +6,7 @@
     "scripts": {
         "start": "nodemon --inspect src/index.js",
         "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src",
+        "build2": "webpack --config webpack.config.js",
         "start:dev": "npm run babel && npm run import-es6 && nodemon --inspect src/index.js",
         "import-es6": "node --experimental-specifier-resolution=node src/index.js",
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
