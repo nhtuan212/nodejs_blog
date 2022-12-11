@@ -6,7 +6,6 @@
     "scripts": {
         "start": "nodemon --inspect src/index.js",
         "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src",
-        "build2": "webpack --config webpack.config.js",
         "start:dev": "npm run babel && npm run import-es6 && nodemon --inspect src/index.js",
         "import-es6": "node --experimental-specifier-resolution=node src/index.js",
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
@@ -51,7 +50,6 @@
         "serverless-http": "^3.1.0"
     },
     "devDependencies": {
-        "@expo/webpack-config": "^0.17.3",
         "husky": "^8.0.2",
         "lint-staged": "^13.0.4",
         "morgan": "^1.10.0",
