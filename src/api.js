@@ -1,23 +1,19 @@
-require('dotenv').config();
 const express = require("express");
 const serverless = require("serverless-http");
-const { port, ext, mongoURL } = require('./config/constants');
 const { connectDB } = require('./config/db');
 
 const app = express();
 const router = express.Router();
 
 const Course = require('./app/models/Course');
+const port = 3000;
 
 // Connect MongoDB
-connectDB(mongoURL)
+connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
 
 router.get("/", (req, res, next) => {
 	Course.find({})
 		.then((courses) => {
-			console.log({
-				courses
-			});
 			return res.json(courses);
 		})
 		.catch(next);
