@@ -1,7 +1,7 @@
 {
     "name": "y",
     "version": "1.0.0",
-    "main": "src/server.js",
+    "main": "src/api.js",
     "scripts": {
         "start": "nodemon --inspect ./node_modules/.bin/babel-node src/api.js",
         "start:build": "npm run build && node dist/api.js",
