@@ -26,13 +26,7 @@ router.get("/", (req, res, next) => {
 	// 	})
 	// 	.catch(next);
 });
-
-// app.use(`/`, router);
 app.use(`/.netlify/functions/api`, router);
 
-// app.listen(port, () => {
-// 	console.log(`App listening on port ${port}`);
-// });
-
 module.exports = app;
-exports.handler = serverless(app);
+module.exports.handler = serverless(app);
