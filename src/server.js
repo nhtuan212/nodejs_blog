@@ -1,4 +1,6 @@
-require('dotenv').config();
+// require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config()
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
@@ -10,7 +12,6 @@ const { connectDB } = require('./config/db');
 const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
 const serverless = require("serverless-http");
 const nodeExternals = require('webpack-node-externals');
-
 
 // Connect MongoDB
 connectDB(mongoURL)
