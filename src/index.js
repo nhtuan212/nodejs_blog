@@ -1,12 +1,10 @@
 const express = require("express");
 const serverless = require("serverless-http");
-const { connectDB } = require('./config/db');
-const Course = require('./app/models/Course');
 
 // import express from 'express';
 // import serverless from 'serverless-http';
-// import { connectDB } from './config/db';
-// import Course from './app/models/Course';
+import { connectDB } from './config/db';
+import Course from './app/models/Course';
 
 const app = express();
 const router = express.Router();
