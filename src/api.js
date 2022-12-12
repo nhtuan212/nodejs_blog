@@ -1,6 +1,6 @@
 const express = require("express");
 const serverless = require("serverless-http");
-const { connectDB } = require('./config/db');
+// const { connectDB } = require('./config/db');
 
 const app = express();
 const router = express.Router();
