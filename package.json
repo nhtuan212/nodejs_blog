@@ -5,7 +5,7 @@
     "scripts": {
         "start": "nodemon --inspect ./node_modules/.bin/babel-node src/api.js",
         "start:build": "npm run build && node dist/api.js",
-        "build": "node src/api.js",
+        "build": "node index.js",
         "start:dev": "npm run babel && npm run import-es6 && nodemon --inspect src/index.js",
         "import-es6": "node --experimental-specifier-resolution=node src/api.js",
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
