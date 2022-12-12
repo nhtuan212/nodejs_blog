@@ -4,14 +4,14 @@ const serverless = require("serverless-http");
 
 // import express from 'express';
 // import serverless from 'serverless-http';
-import { connectDB } from './config/db';
-import Course from './app/models/Course';
+// import { connectDB } from './config/db';
+// import Course from './app/models/Course';
 
 const app = express();
 const router = express.Router();
 
 // Connect MongoDB
-connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
+// connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
 
 // Vercel
 const port = 3000
@@ -25,8 +25,6 @@ app.use("/api/product", router);
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 });
-
-module.exports = app;
 
 // Netlify
 // router.get("/", (req, res, next) => {
