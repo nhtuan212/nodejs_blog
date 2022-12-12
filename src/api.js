@@ -19,9 +19,6 @@ const port = 3000;
 connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
 
 router.get("/", (req, res, next) => {
-	// return res.json({
-	// 	name: 'binayu'
-	// })
 	Course.find({})
 		.then((courses) => {
 			return res.json(courses);
@@ -33,7 +30,7 @@ router.get("/", (req, res, next) => {
 app.use(`/.netlify/functions/api`, router);
 
 app.listen(port, () => {
-	console.log(`App listening on port ${port}`);
+	console.log(`App listening on port ${port} ok`);
 });
 
 module.exports = app;
