@@ -9,7 +9,8 @@ const router = express.Router();
 const port = 3000;
 
 // Connect MongoDB
-connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
+// connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
+connectDB
 
 router.get("/", (req, res, next) => {
 	return res.json({
