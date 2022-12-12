@@ -15,17 +15,12 @@ connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_data
 
 // Vercel
 const port = 3000
-app.get('/binayu', (req, res, next) => {
-	// res.json({
-	// 	name: 'binayu'
-	// })
-
-	Course.find({})
-		.then((courses) => {
-			return res.json(courses);
-		})
-		.catch(next);
+router.get("/", (req, res, next) => {
+	res.json({
+		name: 'binayu'
+	})
 });
+app.use("/api/product", router);
 
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
