@@ -1,20 +1,16 @@
 "use strict";
 
-var _express = _interopRequireDefault(require("express"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-// const express = require("express");
+var express = require("express");
 var serverless = require("serverless-http");
 // const { connectDB } = require('./config/db');
 
-// const app = express();
-// const router = express.Router();
-
+// import express from 'express';
 // import serverless from 'serverless-http';
 // import { connectDB } from './config/db';
 // import Course from './app/models/Course';
 
-var app = (0, _express["default"])();
-var router = _express["default"].Router();
+var app = express();
+var router = express.Router();
 var port = 3000;
 
 // Connect MongoDB
@@ -33,7 +29,7 @@ router.get("/", function (req, res, next) {
 });
 
 // app.use(`/`, router);
-app.use("/.netlify/functions/api", router);
+app.use("/.netlify/functions/index", router);
 app.listen(port, function () {
   console.log("App listening on port ".concat(port));
 });

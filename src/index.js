@@ -1,11 +1,8 @@
-// const express = require("express");
+const express = require("express");
 const serverless = require("serverless-http");
 // const { connectDB } = require('./config/db');
 
-// const app = express();
-// const router = express.Router();
-
-import express from 'express';
+// import express from 'express';
 // import serverless from 'serverless-http';
 // import { connectDB } from './config/db';
 // import Course from './app/models/Course';
@@ -31,7 +28,7 @@ router.get("/", (req, res, next) => {
 });
 
 // app.use(`/`, router);
-app.use(`/.netlify/functions/api`, router);
+app.use(`/.netlify/functions/index`, router);
 
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
