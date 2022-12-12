@@ -3,9 +3,9 @@
     "version": "1.0.0",
     "main": "src/server.js",
     "scripts": {
-        "start": "nodemon --inspect ./node_modules/.bin/babel-node src/api.js",
+        "start": "node dist/index.js",
         "start3": "node -r esm src/api.js",
-        "build": "NODE_ENV=production ./node_modules/.bin/netlify-lambda build src",
+        "build": "NODE_ENV=production babel src/api.js -d dist",
         "start:dev": "npm run babel && npm run import-es6 && nodemon --inspect src/index.js",
         "import-es6": "node --experimental-specifier-resolution=node src/api.js",
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
