@@ -28,7 +28,8 @@ router.get("/", function (req, res, next) {
   // 	.catch(next);
 });
 
-app.use("/.netlify/functions/index", router);
+// app.use(`/`, router);
+app.use("/.netlify/functions/api", router);
 app.listen(port, function () {
   console.log("App listening on port ".concat(port));
 });

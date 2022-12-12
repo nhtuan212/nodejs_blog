@@ -28,7 +28,7 @@ router.get("/", (req, res, next) => {
 });
 
 // app.use(`/`, router);
-app.use(`/.netlify/functions/index`, router);
+app.use(`/.netlify/functions/api`, router);
 
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
