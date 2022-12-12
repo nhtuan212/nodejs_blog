@@ -30,7 +30,7 @@ router.get("/", (req, res, next) => {
 app.use(`/.netlify/functions/api`, router);
 
 app.listen(port, () => {
-	console.log(`App listening on port ${port} ok`);
+	console.log(`App listening on port ${port}`);
 });
 
 module.exports = app;
