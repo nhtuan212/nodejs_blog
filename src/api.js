@@ -6,7 +6,7 @@
 // const router = express.Router();
 
 import express from 'express';
-import serverless from 'serverless-http';
+// import serverless from 'serverless-http';
 // import { connectDB } from './config/db';
 // import Course from './app/models/Course';
 
