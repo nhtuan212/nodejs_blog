@@ -1,7 +1,6 @@
 "use strict";
 
 var _express = _interopRequireDefault(require("express"));
-var _serverlessHttp = _interopRequireDefault(require("serverless-http"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 // const express = require("express");
 // const serverless = require("serverless-http");
@@ -10,6 +9,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 // const app = express();
 // const router = express.Router();
 
+// import serverless from 'serverless-http';
 // import { connectDB } from './config/db';
 // import Course from './app/models/Course';
 
@@ -34,5 +34,6 @@ app.use("/.netlify/functions/api", router);
 app.listen(port, function () {
   console.log("App listening on port ".concat(port));
 });
+
 // module.exports = app;
-// module.exports.handler = (0, _serverlessHttp["default"])(app);
+// module.exports.handler = serverless(app);

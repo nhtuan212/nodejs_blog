@@ -1,5 +1,5 @@
 // const express = require("express");
-// const serverless = require("serverless-http");
+const serverless = require("serverless-http");
 // const { connectDB } = require('./config/db');
 
 // const app = express();
@@ -38,4 +38,4 @@ app.listen(port, () => {
 });
 
 // module.exports = app;
-// module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
