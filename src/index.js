@@ -1,6 +1,7 @@
 const express = require("express");
 const serverless = require("serverless-http");
-// const { connectDB } = require('./config/db');
+const { connectDB } = require('./config/db');
+const Course = require('./app/models/Course');
 
 // import express from 'express';
 // import serverless from 'serverless-http';
@@ -11,14 +12,16 @@ const app = express();
 const router = express.Router();
 
 // Connect MongoDB
-// connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
+connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
 
 // Vercel
 const port = 3000
 router.get("/", (req, res, next) => {
-	res.json({
-		name: 'binayu'
-	})
+	Course.find({})
+		.then((courses) => {
+			return res.json(courses);
+		})
+		.catch(next);
 });
 app.use("/api/product", router);
 
