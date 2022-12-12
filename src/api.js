@@ -23,11 +23,11 @@ router.get("/", (req, res, next) => {
 		name: 'binayu'
 	})
 
-	Course.find({})
-		.then((courses) => {
-			return res.json(courses);
-		})
-		.catch(next);
+	// Course.find({})
+	// 	.then((courses) => {
+	// 		return res.json(courses);
+	// 	})
+	// 	.catch(next);
 });
 
 // app.use(`/`, router);

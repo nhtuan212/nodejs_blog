@@ -3,7 +3,7 @@
 var _express = _interopRequireDefault(require("express"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 // const express = require("express");
-// const serverless = require("serverless-http");
+var serverless = require("serverless-http");
 // const { connectDB } = require('./config/db');
 
 // const app = express();
@@ -24,9 +24,12 @@ router.get("/", function (req, res, next) {
   return res.json({
     name: 'binayu'
   });
-  Course.find({}).then(function (courses) {
-    return res.json(courses);
-  })["catch"](next);
+
+  // Course.find({})
+  // 	.then((courses) => {
+  // 		return res.json(courses);
+  // 	})
+  // 	.catch(next);
 });
 
 // app.use(`/`, router);
@@ -36,4 +39,4 @@ app.listen(port, function () {
 });
 
 // module.exports = app;
-// module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
