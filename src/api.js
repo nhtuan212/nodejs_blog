@@ -19,9 +19,9 @@ const port = 3000;
 connectDB('mongodb+srv://blog_database:123@cluster0.aipk5ey.mongodb.net/bin_database')
 
 router.get("/", (req, res, next) => {
-	return res.json({
-		name: 'binayu'
-	})
+	// return res.json({
+	// 	name: 'binayu'
+	// })
 	Course.find({})
 		.then((courses) => {
 			return res.json(courses);
