@@ -5,7 +5,7 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 
-const Course = require('./app/models/Course');
+// const Course = require('./app/models/Course');
 const port = 3000;
 
 // Connect MongoDB
