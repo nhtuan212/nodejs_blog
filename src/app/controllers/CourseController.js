@@ -20,8 +20,8 @@ class CourseController {
 		// const fileUpload = new Resize(imagePath);
 		// const filename = await fileUpload.save(req.file.buffer);
 		
-		const fileUpload = Resize({ imagePath, imageSize: "300x300", buffer: req.file.buffer });
-		return res.status(200).json({ name: fileUpload });
+		const fileUpload = Resize({ imagePath, imageSize: "300x300", imageInfo: req.file });
+		return res.status(200).json({ name: 'Upload Successfully' });
 	};
 
     // [GET]/course

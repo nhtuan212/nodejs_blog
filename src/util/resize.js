@@ -32,27 +32,33 @@ const setFilePath = (imagePath, fileName) => (
 	path.resolve(`${imagePath}/${fileName}`)
 )
 
-const setFileName = () => (
-	`${Math.random()}.png`
-)
+const setFileName = ({ imageName, mimeType, imageSize }) => {
+	const extension = mimeType.split('/')[1] // png
+	const fileName = imageName.replace(`.${extension}`, '')
+	return `${fileName}_${imageSize}.${extension}`
+}
 
-const handleSizeImage = (size) => {
-	
-	// Handle
-
-	const result = parseInt(size)
+const handleSizeImage = (imageSize) => {
+	const fileSize = imageSize.replace("x", ', ').replace("'", '').split(',')
+	const result = {
+		width: parseInt(fileSize[0]),
+		height: parseInt(fileSize[1])
+	}
 	return result
 }
 
-export const Resize = ({ imagePath, imageSize, buffer }) => {
-	if (buffer) {
-		const fileName = setFileName()
+export const Resize = ({ imagePath, imageSize, imageInfo }) => {
+	if (imageInfo) {
+		const imageWidth = handleSizeImage(imageSize).width
+		const imageHeight = handleSizeImage(imageSize).height
+		const fileName = setFileName({
+			imageName: imageInfo.originalname,
+			mimeType: imageInfo.mimetype,
+			imageSize: `${imageWidth}x${imageHeight}`
+		})
 		const filePath = setFilePath(imagePath, fileName)
-		const fileSize = imageSize.replace("x", ', ').replace("'", '').split(',')
-		const imageWidth = handleSizeImage(fileSize[0])
-		const imageHeight = handleSizeImage(fileSize[1])
 
-		sharp(buffer)
+		sharp(imageInfo.buffer)
 			.resize(imageWidth, imageHeight, {
 				fit: sharp.fit.inside,
 				withoutEnlargement: true
