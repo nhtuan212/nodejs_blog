@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "src/index.js",
     "scripts": {
-        "start": "nodemon --inspect ./node_modules/.bin/babel-node src/index.js",
+        "start": "nodemon src/index.js",
         "build": "nodemon src/index.js",
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
         "prepare": "husky install",
