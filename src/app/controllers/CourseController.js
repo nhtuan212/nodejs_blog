@@ -11,15 +11,15 @@ class CourseController {
 	// [POST]/courses/upload
 	upload = async (req, res, next) => {
 		if (!req.file) {
-			return res.status(401).json({ error: 'Please provide an image' });
+			return res.status(401).json({ error: 'Please provide an image' })
 		}
 
 		// folder upload
-		const imagePath = path.join(__dirname, path.relative(__dirname, uploadImage));
+		const imagePath = path.join(__dirname, path.relative(__dirname, uploadImage))
 
 		// call Resize
-		Resize({ imagePath, imageSize: "300x300", imageInfo: req.file });
-		return res.status(200).json({ name: 'Upload Successfully' });
+		Resize({ imagePath, imageSize: "300x300", imageInfo: req.file })
+		return res.status(200).json({ name: 'Upload Successfully' })
 	};
 
     // [GET]/course
