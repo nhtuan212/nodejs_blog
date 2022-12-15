@@ -22,6 +22,15 @@ class CourseController {
 		return res.status(200).json({ name: 'Upload Successfully' })
 	};
 
+    // [GET]/courses/get-products
+	getProducts = async (req, res, next) => {
+        Course.find({})
+            .then((courses) => {
+				return res.json(courses)
+            })
+            .catch(next);
+    };
+
     // [GET]/course
     list = async (req, res, next) => {
         Course.find({})

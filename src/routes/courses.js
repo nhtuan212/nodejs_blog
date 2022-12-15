@@ -9,6 +9,7 @@ const { upload } = require('../app/middlewares/UploadMiddleware');
 // 		res.status(403).json({ message: 'access denied' })
 // 	}, courseController.create);
 router.post('/upload', upload.single('image'), courseController.upload);
+router.get('/get-products', courseController.getProducts);
 router.get('/create', courseController.create);
 router.post('/store', courseController.store);
 router.post('/handle-form-actions', courseController.handleFormActions);
