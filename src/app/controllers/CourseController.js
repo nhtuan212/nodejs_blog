@@ -17,8 +17,8 @@ class CourseController {
 		// folder upload
 		const imagePath = path.join(__dirname, path.relative(__dirname, uploadImage));
 
-		// call Resize		
-		const fileUpload = Resize({ imagePath, imageSize: "300x300", imageInfo: req.file });
+		// call Resize
+		Resize({ imagePath, imageSize: "300x300", imageInfo: req.file });
 		return res.status(200).json({ name: 'Upload Successfully' });
 	};
 
