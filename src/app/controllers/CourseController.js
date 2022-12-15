@@ -1,10 +1,29 @@
-const Course = require('../models/Course');
+import path from 'path'
+import { Resize } from '../../util/resize'
+const Course = require('../models/Course')
 const {
     multipleMongooseToObject,
     mongooseToObject,
 } = require('../../util/mongoose');
 
 class CourseController {
+	// [POST]/courses/upload
+	upload = async (req, res, next) => {
+		if (!req.file) {
+			return res.status(401).json({ error: 'Please provide an image' });
+		}
+
+		// folder upload
+		const imagePath = path.join(__dirname, '../../../public/images');
+
+		// call class Resize
+		// const fileUpload = new Resize(imagePath);
+		// const filename = await fileUpload.save(req.file.buffer);
+		
+		const fileUpload = Resize({ imagePath, imageSize: "300x300", buffer: req.file.buffer });
+		return res.status(200).json({ name: fileUpload });
+	};
+
     // [GET]/course
     list = async (req, res, next) => {
         Course.find({})

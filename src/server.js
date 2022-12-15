@@ -1,17 +1,24 @@
 // require('dotenv').config();
-import dotenv from 'dotenv';
-dotenv.config()
-const path = require('path');
-const express = require('express');
-const morgan = require('morgan');
-const methodOverride = require('method-override')
-const { create } = require('express-handlebars');
-const { route } = require('./routes');
-const { port, ext, mongoURL } = require('./config/constants');
-const { connectDB } = require('./config/db');
-const { SortMiddleware } = require('./app/middlewares/SortMiddleware')
-const serverless = require("serverless-http");
-const nodeExternals = require('webpack-node-externals');
+// const path = require('path');
+// const express = require('express');
+// const morgan = require('morgan');
+// const methodOverride = require('method-override');
+// const { create } = require('express-handlebars');
+// const { route } = require('./routes');
+// const { port, ext, mongoURL } = require('./config/constants');
+// const { connectDB } = require('./config/db');
+// const { SortMiddleware } = require('./app/middlewares/SortMiddleware');
+
+import 'dotenv/config'
+import path from 'path'
+import express from 'express'
+import morgan from 'morgan'
+import methodOverride from 'method-override'
+import { create } from 'express-handlebars'
+import { route } from './routes'
+import { port, ext, mongoURL } from './config/constants'
+import { connectDB } from './config/db'
+import { SortMiddleware } from './app/middlewares/SortMiddleware'
 
 // Connect MongoDB
 connectDB(mongoURL)
@@ -95,21 +102,6 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 // Routes Init
 route(app);
 
-const router = express.Router();
-router.get("/", (req, res) => {
-	res.json({
-		hello: "hi!"
-	});
-});
-app.use(`/.netlify/functions/index`, router);
-
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 });
-
-module.exports = app;
-module.exports.handler = serverless(app);
-
-module.exports = {
-	externals: [nodeExternals()],
-};

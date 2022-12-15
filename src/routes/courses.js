@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { courseController } = require('../app/controllers/CourseController');
+const { upload } = require('../app/middlewares/UploadMiddleware');
+
 // router.get('/create',
 // 	(req, res, next) => {
 // 		if (req.query.test === 'test-middleware') return next()
 // 		res.status(403).json({ message: 'access denied' })
 // 	}, courseController.create);
+router.post('/upload', upload.single('image'), courseController.upload);
 router.get('/create', courseController.create);
 router.post('/store', courseController.store);
 router.post('/handle-form-actions', courseController.handleFormActions);

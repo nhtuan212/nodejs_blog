@@ -1,5 +1,5 @@
-// import mongoose from 'mongoose';
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 export const connectDB = async (mongoURL) => {
 	await mongoose
