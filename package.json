@@ -4,6 +4,7 @@
     "main": "src/server.js",
     "scripts": {
         "start": "nodemon --inspect ./node_modules/.bin/babel-node src/server.js",
+        "build": "nodemon --inspect ./node_modules/.bin/babel-node src/server.js",
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
         "prepare": "husky install",
         "lint-staged": "lint-staged",
