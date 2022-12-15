@@ -5,6 +5,7 @@ const {
     multipleMongooseToObject,
     mongooseToObject,
 } = require('../../util/mongoose');
+import { uploadImage } from '../../config/constants'
 
 class CourseController {
 	// [POST]/courses/upload
@@ -14,12 +15,9 @@ class CourseController {
 		}
 
 		// folder upload
-		const imagePath = path.join(__dirname, '../../../public/images');
+		const imagePath = path.join(__dirname, path.relative(__dirname, uploadImage));
 
-		// call class Resize
-		// const fileUpload = new Resize(imagePath);
-		// const filename = await fileUpload.save(req.file.buffer);
-		
+		// call Resize		
 		const fileUpload = Resize({ imagePath, imageSize: "300x300", imageInfo: req.file });
 		return res.status(200).json({ name: 'Upload Successfully' });
 	};

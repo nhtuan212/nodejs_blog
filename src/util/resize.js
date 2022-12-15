@@ -33,9 +33,10 @@ const setFilePath = (imagePath, fileName) => (
 )
 
 const setFileName = ({ imageName, mimeType, imageSize }) => {
-	const extension = mimeType.split('/')[1] // png
+	const extension = mimeType.split('/')[1]
 	const fileName = imageName.replace(`.${extension}`, '')
-	return `${fileName}_${imageSize}.${extension}`
+	const uniqueSuffix = `${Date.now()}_${Math.round(Math.random() * 1E9)}_${imageSize}`
+	return `${fileName}_${uniqueSuffix}.${extension}`
 }
 
 const handleSizeImage = (imageSize) => {
