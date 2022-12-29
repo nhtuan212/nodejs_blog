@@ -34,27 +34,27 @@ const hbs = create({
             const icons = {
                 default: '<i class="fa-sharp fa-solid fa-sort"></i>',
                 asc: '<i class="fa-sharp fa-solid fa-arrow-down-a-z"></i>',
-                desc: '<i class="fa-sharp fa-solid fa-arrow-down-z-a"></i>'
+                desc: '<i class="fa-sharp fa-solid fa-arrow-down-z-a"></i>',
             }
             const types = {
                 default: 'desc',
                 asc: 'desc',
-                desc: 'asc'
+                desc: 'asc',
             }
             const icon = icons[sortType]
             const type = types[sortType]
 
             return `<a href="?_sort&column=${field}&type=${type}">${icon}</a>`
-        }
-    }
+        },
+    },
 })
 
 // Apply Midlewares
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(
     express.urlencoded({
-        extended: true
-    })
+        extended: true,
+    }),
 )
 app.use(express.json())
 
@@ -87,9 +87,9 @@ app.get(
     (req, res, next) => {
         res.json({
             message: 'success',
-            face: req.face
+            face: req.face,
         })
-    }
+    },
 )
 
 // HTTP logger
@@ -104,5 +104,5 @@ app.set('views', path.join(__dirname, 'resources', 'views'))
 route(app)
 
 app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
+    console.log(`App listening on port ${port}`), console.log(`App listening on port ${port}`)
 })
