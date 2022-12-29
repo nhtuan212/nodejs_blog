@@ -7,7 +7,7 @@ class SiteController {
         Course.find({})
             .then((courses) => {
                 return res.render('home', {
-                    courses: multipleMongooseToObject(courses),
+                    courses: multipleMongooseToObject(courses)
                 });
             })
             .catch(next);
@@ -30,5 +30,5 @@ class SiteController {
 }
 
 module.exports = {
-    siteController: new SiteController(),
+    siteController: new SiteController()
 };
