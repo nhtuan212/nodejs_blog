@@ -1,32 +1,29 @@
-import path from 'path'
-import { Resize } from '../../util/resize'
-const Course = require('../models/Course')
-const {
-    multipleMongooseToObject,
-    mongooseToObject,
-} = require('../../util/mongoose');
-import { uploadImage } from '../../config/constants'
+import path from 'path';
+import { Resize } from '../../util/resize';
+const Course = require('../models/Course');
+const { multipleMongooseToObject, mongooseToObject } = require('../../util/mongoose');
+import { uploadImage } from '../../config/constants';
 
 class CourseController {
-	// [POST]/courses/upload
-	upload = async (req, res, next) => {
-		if (!req.file) {
-			return res.status(401).json({ error: 'Please provide an image' })
-		}
+    // [POST]/courses/upload
+    upload = async (req, res, next) => {
+        if (!req.file) {
+            return res.status(401).json({ error: 'Please provide an image' });
+        }
 
-		// folder upload
-		const imagePath = path.join(__dirname, path.relative(__dirname, uploadImage))
+        // folder upload
+        const imagePath = path.join(__dirname, path.relative(__dirname, uploadImage));
 
-		// call Resize
-		Resize({ imagePath, imageSize: "300x300", imageInfo: req.file })
-		return res.status(200).json({ name: 'Upload Successfully' })
-	};
+        // call Resize
+        Resize({ imagePath, imageSize: '300x300', imageInfo: req.file });
+        return res.status(200).json({ name: 'Upload Successfully' });
+    };
 
     // [GET]/courses/get-products
-	getProducts = async (req, res, next) => {
+    getProducts = async (req, res, next) => {
         Course.find({})
-            .then((courses) => {
-				return res.json(courses)
+            .then(courses => {
+                return res.json(courses);
             })
             .catch(next);
     };
@@ -34,7 +31,7 @@ class CourseController {
     // [GET]/course
     list = async (req, res, next) => {
         Course.find({})
-            .then((courses) => {
+            .then(courses => {
                 return res.render('courses/index', {
                     courses: multipleMongooseToObject(courses),
                 });
@@ -45,7 +42,7 @@ class CourseController {
     // [GET]/course/:slug
     detail = (req, res, next) => {
         Course.findOne({ slug: req.params.slug })
-            .then((course) => {
+            .then(course => {
                 return res.render('courses/detail', {
                     course: mongooseToObject(course),
                 });
@@ -54,68 +51,71 @@ class CourseController {
     };
 
     // [GET]/course/create
-	create = (req, res, next) => {
-		res.render('courses/create')
+    create = (req, res, next) => {
+        res.render('courses/create');
     };
 
     // [POST]/course/store
-	store = (req, res, next) => {
-		req.body.image = `https://files.fullstack.edu.vn/f8-prod/courses/6.png`
-		const course = new Course(req.body);
-		course.save()
-			.then(() => res.redirect(`/me/stored/courses`))
-			.catch(next)
+    store = (req, res, next) => {
+        req.body.image = `https://files.fullstack.edu.vn/f8-prod/courses/6.png`;
+        const course = new Course(req.body);
+        course
+            .save()
+            .then(() => res.redirect(`/me/stored/courses`))
+            .catch(next);
     };
 
     // [GET]/courses/:id/edit
-	edit = (req, res, next) => {
-		Course.findById(req.params.id)
-			.then(course => res.render('courses/edit', {
-				course: mongooseToObject(course)
-			}))
-			.catch(next)
+    edit = (req, res, next) => {
+        Course.findById(req.params.id)
+            .then(course =>
+                res.render('courses/edit', {
+                    course: mongooseToObject(course),
+                }),
+            )
+            .catch(next);
     };
 
     // [PUT]/courses/:id/
-	update = (req, res, next) => {
-		Course.updateOne({ _id: req.params.id }, req.body)
-			.then(() => res.redirect('/me/stored/courses'))
-			.catch(next)
+    update = (req, res, next) => {
+        Course.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
     };
 
-	// [PATCH]/courses/:id/restore
-	restore = (req, res, next) => {
-		Course.restore({ _id: req.params.id })
-			.then(() => res.redirect('back'))
-			.catch(next)
-	};
-
-	// [DELETE]/courses/:id/trash
-	trash = (req, res, next) => {
-		Course.delete({ _id: req.params.id })
-			.then(() => res.redirect('back'))
-			.catch(next)
-	};
-
-	// [DELETE]/courses/:id/delete
-	delete = (req, res, next) => {
-		Course.deleteOne({ _id: req.params.id })
-			.then(() => res.redirect('back'))
-			.catch(next)
+    // [PATCH]/courses/:id/restore
+    restore = (req, res, next) => {
+        Course.restore({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
     };
 
-	// [POST]/courses/handle-form-actions
-	handleFormActions = (req, res, next) => {
-		switch (req.body.action) {
-			case 'trash':
-				Course.delete({ _id: { $in: req.body.courseIds } })
-					.then(() => res.redirect('back'))
-					.catch(next)
-				break
-			default:
-				// render json error
-				break
-		}
+    // [DELETE]/courses/:id/trash
+    trash = (req, res, next) => {
+        Course.delete({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    };
+
+    // [DELETE]/courses/:id/delete
+    delete = (req, res, next) => {
+        Course.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    };
+
+    // [POST]/courses/handle-form-actions
+    handleFormActions = (req, res, next) => {
+        switch (req.body.action) {
+            case 'trash':
+                Course.delete({ _id: { $in: req.body.courseIds } })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            default:
+                // render json error
+                break;
+        }
     };
 }
 
