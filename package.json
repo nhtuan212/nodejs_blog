@@ -26,8 +26,7 @@
     },
     "homepage": "https://github.com/nhtuan212/nodejs_blog#readme",
     "lint-staged": {
-        "src/**/*.{js2,json2,scss2}": "prettier --single-quote --trailing-comma all --tab-width 4 --write",
-        "src/**/*.{js,json,scss}": "prettier --write"
+        "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
     },
     "dependencies": {
         "@babel/cli": "^7.19.3",
