@@ -8,7 +8,7 @@ class MeController {
 
         if (req.query.hasOwnProperty('_sort')) {
             courseQuery = courseQuery.sort({
-                [req.query.column]: req.query.type,
+                [req.query.column]: req.query.type
             })
         }
 
@@ -16,8 +16,8 @@ class MeController {
             .then(([courses, deletedCount]) =>
                 res.render('me/stored-courses', {
                     deletedCount,
-                    courses: multipleMongooseToObject(courses),
-                }),
+                    courses: multipleMongooseToObject(courses)
+                })
             )
             .catch(next)
 
@@ -50,13 +50,13 @@ class MeController {
         Course.findDeleted({})
             .then(courses =>
                 res.render('me/trash-courses', {
-                    courses: multipleMongooseToObject(courses),
-                }),
+                    courses: multipleMongooseToObject(courses)
+                })
             )
             .catch(next)
     }
 }
 
 module.exports = {
-    meController: new MeController(),
+    meController: new MeController()
 }
