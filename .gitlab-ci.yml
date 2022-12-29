@@ -1,0 +1,34 @@
+# stages:
+#   - deploy
+# deploy:
+#   stage: deploy
+#   # variables:
+#     # GIT_STRATEGY: none
+#   only:
+#     - main
+#   # before_script:
+#   #   - apt-get update -y
+#   #   - apt-get install -y zip unzip
+#   #   - yum install bash openssh-server openssh-clients -y
+#   script:
+#     # chạy ssh-agent tương ứng với Gitlab Runner hiện tại
+#     - eval $(ssh-agent -s)
+
+#     # thêm nội dung của biến SSH_PRIVATE_KEY vào agent store
+#     - bash -c 'ssh-add <(echo "$SSH_PRIVATE_KEY")'
+    
+#     # tạo folder ~/.ssh
+#     - mkdir -p ~/.ssh
+    
+#     # Scan lấy SSH Host key cho địa chỉ IP server
+#     # Được kết quả bao nhiêu thì thêm vào file known_hosts
+#     # - ssh-keyscan -H 13.212.62.212 >> ~/.ssh/known_hosts
+#     - ssh-keyscan -H 54.251.14.120 >> ~/.ssh/known_hosts
+    
+#     # Sửa lại quyền của file known_hosts
+#     - chmod 644 ~/.ssh/known_hosts
+
+#     # Thực hiện SSH vào server, xử lý thao tác trên server
+#     # - ssh $SSH_USER@SSH_SERVER_IP 'cd /usr/share/nginx/html/group4 && git pull && npm install && npm run build && pm2 restart group4'
+#     # - ssh $SSH_USER@13.212.62.212 'cd /usr/share/nginx/html/group4 && git pull && npm install && npm run build && pm2 restart group4'
+#     - ssh $SSH_USER@54.251.14.120 'cd /usr/share/nginx/html/group4 && git pull && npm install --force && npm run build && pm2 restart group4'
