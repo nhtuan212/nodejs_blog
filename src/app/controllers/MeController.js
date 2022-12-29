@@ -40,6 +40,20 @@ class MeController {
 		// 	.catch(next)
 	}
 
+	// [GET]/me/stored/courses-api
+	storedCoursesApi = (req, res, next) => {
+		let courseQuery = Course.find({})
+
+		Promise.all([
+			courseQuery,
+			Course.countDocumentsDeleted()
+		])
+			.then(() => 
+				res.json(req.courses)
+			)
+			.catch(next)
+	}
+
 	// [GET]/me/trash/courses
 	trashCourses = (req, res, next) => {
 		Course.findDeleted({})
