@@ -9,6 +9,7 @@
         "build-css": "node-sass -w src/resources/scss/ -o src/public/css/",
         "lint-staged": "lint-staged",
         "babel": "babel src/index.js -d dist",
+        "prepare": "husky install",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
