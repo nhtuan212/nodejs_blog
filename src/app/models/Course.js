@@ -11,7 +11,7 @@ const Course = new Schema(
         name: { type: String, default: '', required: true, maxLength: 255 },
         description: { type: String, default: '', maxLength: 600 },
         image: { type: String, default: '', maxLength: 255 },
-        slug: { type: String, default: '', maxLength: 50, slug: 'name', unique: true },
+        			slug: { type: String, default: '', maxLength: 50, slug: 'name', unique: true },
         deletedAt: { type: String, default: null, maxLength: 50 },
     },
     {

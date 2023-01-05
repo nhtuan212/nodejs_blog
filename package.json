@@ -26,7 +26,7 @@
     },
     "homepage": "https://github.com/nhtuan212/nodejs_blog#readme",
     "lint-staged": {
-        "src/**/*.{js,json,scss}": "prettier --write"
+        "src/**/*.{json,scss}": "prettier --write"
     },
     "dependencies": {
         "@babel/cli": "^7.19.3",
